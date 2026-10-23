@@ -36,10 +36,8 @@ For new papers, corpus updates, and team maintenance, start with [7.4 Collaborat
 ## Table of Contents
 
 - [1. Project Founder and Operations](#1-project-founder-and-operations)
-  - [1.1 Founder Introduction](#11-founder-introduction)
-  - [1.2 Knowledge Planet](#12-knowledge-planet)
-  - [1.3 Repository Store](#13-repository-store)
-  - [1.4 Business Cooperation](#14-business-cooperation)
+  - [1.1 Original Project](#11-original-project)
+  - [1.2 Current Edition Maintainer](#12-current-edition-maintainer)
 - [2. Nature Skills Core Developers](#2-nature-skills-core-developers)
 - [3. Project Philosophy and Community](#3-project-philosophy-and-community)
 - [4. Quick Start](#4-quick-start)
@@ -56,53 +54,27 @@ For new papers, corpus updates, and team maintenance, start with [7.4 Collaborat
 
 ## 1. Project Founder and Operations
 
-### 1.1 Founder Introduction
+### 1.1 Original Project
 
-Hello, I am Yizhe Yuan, the founder of `nature-skills`. Thank you for following this project. We have published many video tutorials on Douyin; search by topic name to find them, and I sincerely hope they help with real research work.
+This edition is adapted from [Nature Skills](https://github.com/Yuan1z0825/nature-skills), initiated by Yizhe Yuan. Its reusable research skills and workflows provide the foundation for this domain adaptation. This repository retains the original license and attribution; the original project's introduction and operational information are available in its repository.
 
-### 1.2 Knowledge Planet
+### 1.2 Current Edition Maintainer
 
-Knowledge Planet name: **Nature Skills and the Philosophy Behind It**.
+[charlie-sys](https://github.com/charlie-sys) maintains the lithium-battery edition in [lithium-battery-research-skills](https://github.com/charlie-sys/lithium-battery-research-skills). Maintenance covers lithium-ion battery state-estimation corpus analysis, domain writing guidance, skill adaptation, releases, and contribution review.
 
-<img width="300" height="400" alt="Nature Skills Knowledge Planet" src="https://github.com/user-attachments/assets/64e37909-0a48-4bfb-8471-c2aff971a0f6" />
-
-### 1.3 Nature AI GPT / Claude Top-ups and Ready-Made Accounts
-
-We carefully screen service channels and provide legitimate top-up channels and
-support. Visit **Nature AI Recharge Card Store**:
-
-<table>
-  <tr>
-    <td align="center" width="68%">
-      <a href="https://apiciyuan.top/">
-        <img src="assets/nature-ai-gpt-claude-service.png" alt="Nature AI GPT and Claude top-up and ready-made account services" width="100%">
-      </a>
-      <br>
-      <strong>Nature AI Recharge Card Store</strong>
-      <br>
-      <a href="https://apiciyuan.top/">https://apiciyuan.top/</a>
-    </td>
-    <td align="center" width="32%">
-      <img src="assets/nature-ai-wechat.jpg" alt="Nature AI customer-service WeChat QR code" width="280">
-      <br>
-      <strong>WeChat Support</strong>
-      <br>
-      <sub>Scan to add</sub>
-    </td>
-  </tr>
-</table>
-
-### 1.4 Business Cooperation
-
-For business cooperation, please contact us at [natureskills2026@outlook.com](mailto:natureskills2026@outlook.com).
+Submit issues and update proposals through this repository's Issues or Pull Requests. Collaborators with access to the private repository can follow [Section 7.4](#74-collaborative-corpus-and-skill-maintenance).
 
 ## 2. Nature Skills Core Developers
 
-| Developer | Project Role | Main Focus and Contributions | Profiles and Contact |
+The original project's main developers include Yizhe Yuan, Xin-Rui Ma, and Bin Hu, who contributed the original skill system, core architecture, and research workflows. Consult the [Nature Skills repository](https://github.com/Yuan1z0825/nature-skills) for its contributor information.
+
+Maintenance of this edition builds on that work:
+
+| Maintainer | Role in This Edition | Maintenance Scope | Collaboration |
 |---|---|---|---|
-| **Yizhe Yuan** | Founder / Maintainer | Project initiation, skill-system design, and community operations | — |
-| **Xin-Rui Ma** | Core Developer | Core development and architecture maintenance | [Gmail](mailto:travisma2233@gmail.com) |
-| **Bin Hu** | Major Contributor | Agentic agents and AI for Science | [GitHub](https://github.com/Flyme886) · [Email](mailto:mhoang12205@gmail.com) |
+| **[charlie-sys](https://github.com/charlie-sys)** | Lithium-battery edition maintainer | Domain corpus and writing guidance, `lithium-battery-*` skill adaptation, repository and CI maintenance, update review, and releases | [Current repository](https://github.com/charlie-sys/lithium-battery-research-skills) |
+
+Subsequent contributions are attributed through PRs and commit history. Add source records, applicable scope, and validation results with new papers, corpus material, or rules.
 
 ## 3. Project Philosophy and Community
 

@@ -44,10 +44,8 @@
 ## 目录
 
 - [1. 项目发起人与运营信息](#1-项目发起人与运营信息)
-  - [1.1 创始人介绍](#11-创始人介绍)
-  - [1.2 自营 GPT / Claude 代充与成品号](#12-自营-gpt--claude-代充与成品号)
-  - [1.3 知识星球](#13-知识星球)
-  - [1.4 商务合作](#14-商务合作)
+  - [1.1 原项目介绍](#11-原项目介绍)
+  - [1.2 当前版本维护人](#12-当前版本维护人)
 - [2. Skills 主要开发者](#2-skills-主要开发者)
 - [3. 项目理念与社区](#3-项目理念与社区)
 - [4. 快速开始](#4-快速开始)
@@ -64,48 +62,27 @@
 
 ## 1. 项目发起人与运营信息
 
-### 1.1 创始人介绍
+### 1.1 原项目介绍
 
-大家好，我是 `nature-skills` 的创立者袁一哲。感谢大家持续关注本项目。我们在抖音更新了许多视频教程，大家可以根据名称检索查看，希望能够真正帮助到科研工作。
+本项目基于袁一哲发起的 [Nature Skills](https://github.com/Yuan1z0825/nature-skills) 改编。原项目提供可复用的科研技能体系和工作流，为本版本的领域适配奠定基础。本仓库保留原项目的许可与署名；原项目的介绍和运营信息可在其仓库查看。
 
-### 1.2 自营 GPT / Claude 代充与成品号
+### 1.2 当前版本维护人
 
-严格筛选渠道商，提供完全正规的充值渠道与服务。欢迎访问 **Nature AI 充值卡网（已上线plus一年代充，Pro5x，20x等等）**：
+当前锂电池版本由 [charlie-sys](https://github.com/charlie-sys) 负责后续维护，维护仓库为 [lithium-battery-research-skills](https://github.com/charlie-sys/lithium-battery-research-skills)。维护工作包括锂离子电池状态估计语料提炼、领域写作指南更新、技能适配、版本发布与协作审核。
 
-<table>
-  <tr>
-    <td align="center" width="68%">
-      <a href="https://apiciyuan.top/">
-        <img src="assets/nature-ai-gpt-claude-service.png" alt="Nature AI GPT 与 Claude 代充及成品号服务" width="100%">
-      </a>
-      <br>
-      <strong>Nature AI 充值卡网</strong>
-      <br>
-      <a href="https://apiciyuan.top/">https://apiciyuan.top/</a>
-    </td>
-    <td align="center" width="32%">
-<img width="688" height="636" alt="31c401d51eee5b5dbdc5209cb9cb4131" src="https://github.com/user-attachments/assets/cab3d62c-b3ce-4e76-b701-1d22a26e818a" />
-      扫码添加微信客服
-  </tr>
-</table>
-
-### 1.3 知识星球
-
-知识星球名称：**Nature Skills 以及背后的哲学**，以加入知识星球代替打赏。
-
-<img width="300" height="400" alt="Nature Skills 知识星球" src="https://github.com/user-attachments/assets/64e37909-0a48-4bfb-8471-c2aff971a0f6" />
-
-### 1.4 商务合作
-
-如有商务合作意向，欢迎发送邮件至 [natureskills2026@outlook.com](mailto:natureskills2026@outlook.com)。
+本版本的问题反馈和更新建议通过本仓库的 Issues 或 Pull Request 提交。协作人获得私有仓库访问权限后，可按 [7.4 节](#74-锂电池语料与技能的协作维护)参与维护。
 
 ## 2. Skills 主要开发者
 
-| 开发者 | 项目角色 | 主要方向与贡献 | 主页与联系 |
+原项目的主要开发者包括袁一哲、马昕瑞和胡彬，负责原有技能体系、核心架构及相关科研工作流。原项目贡献者信息以 [Nature Skills 仓库](https://github.com/Yuan1z0825/nature-skills)为准。
+
+在此基础上，当前版本的维护分工如下：
+
+| 维护人 | 当前版本角色 | 主要维护内容 | 协作入口 |
 |---|---|---|---|
-| **袁一哲** | 创始人 / 维护者 | 项目发起、技能体系设计与社区运营 | — |
-| **马昕瑞** | 核心开发者 | 核心开发、架构维护 | [Gmail](mailto:travisma2233@gmail.com) |
-| **胡彬** | 主要贡献者 | Agentic Agent |[Email](mailto:mhoang12205@gmail.com) |
+| **[charlie-sys](https://github.com/charlie-sys)** | 锂电池版本维护人 | 领域语料与写作规范维护、`lithium-battery-*` 技能适配、仓库与 CI 维护、更新审核和版本发布 | [当前仓库](https://github.com/charlie-sys/lithium-battery-research-skills) |
+
+后续协作贡献通过 PR 和提交记录追溯；新增论文、语料和规则时，应同时记录来源、适用范围及验证结果。
 
 ## 3. 项目理念与社区
 
