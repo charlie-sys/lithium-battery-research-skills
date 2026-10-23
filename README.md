@@ -1,5 +1,7 @@
 > **本地锂电池版本：** 本目录的技能使用 `lithium-battery-*` 名称。请从本目录安装；下方保留的上游 GitHub 克隆、更新示例会获取原版 Nature Skills。
 
+当前版本仓库：[charlie-sys/lithium-battery-research-skills](https://github.com/charlie-sys/lithium-battery-research-skills)。本项目改编自 [Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills)，保留原项目许可与署名。
+
 在 Codex 中直接指定所需技能，例如：`$lithium-battery-polishing`（已有稿件中译英或润色）、`$lithium-battery-writing`（起草章节）、`$lithium-battery-reviewer`（模拟审稿）、`$lithium-battery-citation`（文献支撑核查）、`$lithium-battery-figure`（论文绘图）。`$lithium-battery-paper-trans` 的原有工作流是英文 PDF 翻译为中文 PDF；中文论文译为英文应选 `$lithium-battery-polishing`。`lithium-battery-shared` 为内部支持包，不单独调用。
 
 <div align="center">

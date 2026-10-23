@@ -1,5 +1,7 @@
 > **Local lithium-battery edition:** Skills in this folder use `lithium-battery-*` names. Install from this folder; upstream GitHub clone/update examples below fetch the original Nature Skills.
 
+Current repository: [charlie-sys/lithium-battery-research-skills](https://github.com/charlie-sys/lithium-battery-research-skills). Adapted from [Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills), with the original license and attribution retained.
+
 Invoke a specific skill with `$lithium-battery-polishing` (translate or polish existing prose), `$lithium-battery-writing` (draft sections), `$lithium-battery-reviewer` (mock peer review), `$lithium-battery-citation` (citation support), or `$lithium-battery-figure` (scientific figures). `$lithium-battery-paper-trans` retains its English-PDF-to-Chinese-PDF workflow; use `$lithium-battery-polishing` for Chinese-to-English manuscript translation. `lithium-battery-shared` is an internal support package, not a standalone workflow.
 
 <div align="center">
