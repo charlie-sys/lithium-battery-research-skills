@@ -44,7 +44,7 @@ Once set, the ledger is fixed for the whole job:
 - Use only canonical forms in every output. Do not introduce synonyms to vary
   the prose. Terminology consistency outranks lexical variety in scientific
   writing.
-- Define each abbreviation once, at first use, then use the short form.
+- Define necessary abbreviations at first use in the main text, then use the short form. Check the target journal's separate rules for abstracts and figure legends; they may prohibit abstract abbreviations or require each legend to define its own terms.
 - Keep units, symbols, and notation identical across every section.
 - When drafting or polishing a later section, reference the ledger built from
   the earlier sections instead of re-deciding term by term.

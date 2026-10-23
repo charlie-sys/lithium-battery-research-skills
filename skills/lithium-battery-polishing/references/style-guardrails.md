@@ -7,7 +7,7 @@ Use this file for mechanical and stylistic checks after the main rewrite. This f
 - prefer cautious, precise prose over conversational confidence
 - avoid contractions
 - avoid rhetorical questions in polished manuscript prose
-- define abbreviations on first use
+- define necessary abbreviations on first use in the main text; check abstract and figure-legend rules separately for the target journal
 - use British spelling by default if the target is Nature-style prose
 - keep figure legends concise; if aiming for Nature style, `<= 300` words is a good upper bound
 - if aiming for Nature style, keep titles at `<= 75` characters including spaces

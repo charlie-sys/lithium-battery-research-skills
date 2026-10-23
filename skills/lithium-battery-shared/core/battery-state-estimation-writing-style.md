@@ -12,7 +12,7 @@
 | *Energy Storage Materials* | 5 |
 | *Nature Energy*、*Joule*、*Energy Conversion and Management*、*Reliability Engineering and System Safety* | 各 1 |
 
-这些是**特定论文的语言习惯**，不是任何期刊的官方写作规则。单篇期刊只能提供论文级示例。以清晰、准确、证据约束的英语为默认风格；目标期刊明确时，应先核对该期刊**当前的作者指南及文章类型要求**，再调整摘要、正文和图注的信息密度。语料中偶见的冗长模块清单、重复自评、模糊比较或过强结论不作为范本。本指南是语言与论证表达的辅助依据，不代替投稿清单。
+这些是**特定论文的语言习惯**，不是任何期刊的官方写作规则。单篇期刊只能提供论文级示例。以清晰、准确、证据约束的英语为默认风格；目标期刊明确时，应先核对该期刊**当前的作者指南及文章类型要求**，再调整摘要、正文和图注的信息密度。目标期刊的具体要求优先于本指南的跨期刊建议。语料中偶见的冗长模块清单、重复自评、模糊比较或过强结论不作为范本。本指南是语言与论证表达的辅助依据，不代替投稿清单。
 
 ## 2. 术语与任务边界
 
@@ -27,13 +27,13 @@
 | 性能概念 | *Accuracy* 须由与任务匹配的具体指标支撑（回归误差、分类准确率等不可混用）；*robustness* 需有相应扰动或工况测试；*generalization* 需有与所声称范围匹配的独立测试证据；*uncertainty* 需说明所报告不确定性的定义与计算方法，若声称预测区间或概率已校准，还需相应校准证据。*Adaptation* 允许对目标域进行调整，不能直接写成零样本泛化。 |
 | 对象层级 | *cell*, *module*, *pack*, *battery system* 按实际样本层级使用；单电芯结果不能直接表述为电池包验证。 |
 
-常见专业搭配包括 *partial charging profile*, *voltage relaxation*, *electrochemical impedance spectroscopy (EIS)*, *differential voltage analysis*, *incremental capacity analysis*, *health indicator*, *cell-to-cell variability*, *operating conditions*, *distribution shift*, *target-domain labels*, *sensor noise* 和 *inference latency*。这些词只在研究实际使用相应信号、方法或测试时出现。缩写在首次出现时定义，并在全文保持一个概念对应一个名称。*Open-circuit voltage (OCV)*、*voltage plateau*、*state of energy (SOE)*、*end of life (EOL)* 和 *capacity retention* 也不能与 SOC、SOH 或容量随意替换。
+常见专业搭配包括 *partial charging profile*, *voltage relaxation*, *electrochemical impedance spectroscopy (EIS)*, *differential voltage analysis*, *incremental capacity analysis*, *health indicator*, *cell-to-cell variability*, *operating conditions*, *distribution shift*, *target-domain labels*, *sensor noise* 和 *inference latency*。这些词只在研究实际使用相应信号、方法或测试时出现。正文中的必要缩写通常在首次出现时定义，并在全文保持一个概念对应一个名称；摘要和每条图注是否使用或重新定义缩写，分别按目标期刊要求处理。例如，下文所引 *Nature Communications* 格式说明要求摘要不使用缩写，并在各图注中定义缩写。*Open-circuit voltage (OCV)*、*voltage plateau*、*state of energy (SOE)*、*end of life (EOL)* 和 *capacity retention* 也不能与 SOC、SOH 或容量随意替换。
 
 ## 3. 论文章节的叙述任务
 
 ### 摘要
 
-建议顺序是“任务及具体障碍 → 核心方法思想 → 测试对象和条件 → 决定性结果 → 有边界的意义”。方法部分应呈现解决问题的关键设计，而不是连续罗列模块名称。*Nature Communications* 类论文通常较快进入研究动作或核心发现；*Applied Energy* 与 *Energy* 类论文可以多给一层工程实现和多工况指标。摘要中的数值要说明指标、数据或条件，不孤立地写“误差降低”。
+建议顺序是“任务及具体障碍 → 核心方法思想 → 测试对象和条件 → 决定性结果 → 有边界的意义”。方法部分应呈现解决问题的关键设计，而不是连续罗列模块名称。语料中的 *Nature Communications* 论文常较快进入研究动作或核心发现；所选 *Applied Energy* 与 *Energy* 论文有时会多给一层工程实现和多工况指标。这些是语料观察，不替代目标期刊的摘要要求。摘要中的数值要说明指标、数据或条件，不孤立地写“误差降低”。
 
 ### 引言
 
@@ -87,7 +87,7 @@
 | 作出解释 | *indicate, suggest, support, be consistent with, be associated with, may reflect* | 从观测走向解释时保留适当不确定性。 |
 | 讨论用途 | *enable, facilitate, support, offer a route to* | 限定部署所需条件；不把实验室性能写成已落地应用。 |
 
-优先写具体结果，少用无锚点的 *novel, superior, remarkable, significant, robust*。有统计意义的 *significant* 应有相应统计检验；若只是幅度较大，给出数值。
+优先写具体结果，少用无锚点的 *novel, superior, remarkable, significant, robust*。*Statistically significant* 或可能被理解为统计显著的 *significant/significantly*，应有相应统计分析支撑；若仅指幅度较大，优先报告数值，并选用不会暗示统计检验的措辞。
 
 ### 5.2 逻辑连接
 
@@ -121,10 +121,10 @@
 | 论文部分 | 主要在说什么 | 常用时态及判断 |
 |---|---|---|
 | 标题与小标题 | 命名问题、方法或发现。 | 多用名词结构或现在时陈述持续成立的核心结论；通常无需为了统一时态而改写。 |
-| 摘要 | 背景、知识缺口、研究动作、关键结果和意义同时出现。 | 背景与未解决问题常用**一般现在时**；*Here we present/show...*、*This study proposes...* 等论文贡献句也常用现在时。特定实验如何完成可用**一般过去时**；结果句可用过去时或现在时，取决于强调“该次测得”还是“本文结果表明”。摘要内部保持逻辑清楚比统一时态更重要。 |
+| 摘要 | 背景、知识缺口、研究动作、关键结果和意义同时出现。 | 背景与未解决问题常用**一般现在时**；*Here we present/show...*、*This study proposes...* 等论文贡献句也常用现在时。特定实验如何完成可用**一般过去时**；结果句可用过去时或现在时，取决于强调“该次测得”还是“本文结果表明”。摘要内部保持逻辑清楚比统一时态更重要；目标期刊若对摘要句式、缩写或结尾时态有具体规定，则先遵守该规定。 |
 | 引言 | 通行知识、已有研究、当前缺口和本文研究问题。 | 公认定义及尚存问题用**一般现在时**；某篇前人论文实施了什么可用**一般过去时**；一个研究方向迄今积累了什么可用**现在完成时**。本文段落可用现在时介绍论文动作，但不把尚未验证的结果写成领域常识。 |
 | 材料与方法 | 既有实际操作，也有可复现的算法、变量和方程定义。 | 已完成的采样、循环测试、训练集划分、测量与模型拟合多用**一般过去时**；模型结构、算法步骤、公式关系和符号定义常用**一般现在时**。按作者是在回顾一次实验，还是说明读者现在可以如何理解或复现方法来选。 |
-| 结果 | 数据、比较、图表与局部解释。 | 特定样本在指定条件下的变化和实测比较常用**一般过去时**；*Figure/Table ... shows/compares* 及对图中关系的说明常用**一般现在时**。若整段用现在时引导读者依次查看模型、图和指标，也可保持现在时，但不能因此把一次性观察升级为普遍规律。 |
+| 结果 | 数据、比较、图表与局部解释。 | 特定样本在指定条件下的变化和实测比较通常优先用**一般过去时**；*Figure/Table ... shows/compares* 及对图中关系的说明常用**一般现在时**。若现在时清楚地用于引导读者查看图表或概括当前可见的关系，也可使用；不要为统一章节时态而机械切换，更不能把一次性观察升级为普遍规律。 |
 | 讨论 | 回看本研究发现，联系已有知识，解释机制并限定外推。 | 回顾“我们测到了什么”可用**一般过去时**；“这些结果现在支持什么解释”及仍成立的研究含义可用**一般现在时**。推测和边界靠 *may, could, suggests, is consistent with* 等语气表达，而不靠时态伪装成确定因果。 |
 | 结论 | 总结完成的工作、目前可支持的贡献与未解决问题。 | 完成的实验和观察可用**一般过去时**；方法的定义、本文贡献或现有结果支持的结论可用**一般现在时**。两者在同段出现正常，但平行列举的同类发现应保持时态协调。未完成的验证宜写 *remains to be evaluated*，不把未来计划写成已验证能力。 |
 | 图题、图注、表注 | 指认图中面板、曲线、数据来源和制备过程。 | 图表“现在展示什么”多用**一般现在时**；样品如何制备、数据如何采集、实验如何执行多用**一般过去时**。图注内切换时态通常反映句子功能切换。 |
@@ -157,7 +157,7 @@
 | *as low as [x]* / *a minimum of [x]* | 最佳或最低值。 | 不改写成所有测试的平均表现。 |
 | *up to [x]% reduction* | 最大相对降幅。 | 不改写成每个数据集都下降该幅度。 |
 | *on average* / *across [n] datasets* | 指定集合的汇总值。 | 说明汇总范围；必要时保留数据集间差异。 |
-| *within ±[x] percentage points* | 相对参考值的误差边界。 | 与百分比变化区分；给出适用测试条件。 |
+| *within ±[x] percentage points* | 相对参考值的误差范围。 | 与百分比变化区分；说明适用测试条件及覆盖范围：全部样本、指定分位数，还是有明确定义的区间。未经证实，不写成所有误差均落在该范围内。 |
 | *below [x]* / *less than [x]* | 上界或阈值。 | 不擅自替换为精确测量值。 |
 | *an inference time of [x]* | 指定平台上的计算耗时。 | 与采集一段电压/电流数据所需时间、诊断流程总时间分开。 |
 
@@ -198,12 +198,12 @@
 | 语料类型 | 值得借鉴的叙述重点 | 不应直接推断 |
 |---|---|---|
 | *Nature Communications*（11 篇） | 快速呈现障碍、研究动作、核心发现及其边界；压缩模块清单。 | 不能强制所有文章使用 *Here we show*。 |
-| *Nature Energy*（1 篇） | 现场系统、长期测量、样本与数据资源价值。 | 不可把该单篇的现场研究框架套到普通模型论文。 |
-| *Joule*（1 篇） | 将模型解释、验证和应用场景连成一条证据链。 | 可解释潜变量不等于已证实物理机制。 |
+| *Nature Energy*（1 篇，单篇示例） | 该论文强调现场系统、长期测量、样本与数据资源价值。 | 不可把该单篇的现场研究框架套到普通模型论文。 |
+| *Joule*（1 篇，单篇示例） | 该论文将模型解释、验证和应用场景连成一条证据链。 | 可解释潜变量不等于已证实物理机制。 |
 | *Energy Storage Materials*（5 篇） | 解释传感信号或材料特征与估计任务的联系。 | 成本优势、跨材料适用性须有测试。 |
 | *Applied Energy*（14 篇） | 工程工况、基线、消融、误差和计算成本。 | 不照搬冗长算法清单或未经限定的自评。 |
 | *Energy*（14 篇） | 联合估计、温度与工况变化、模型组合和跨域边界。 | 不把某一数据集的精度写成普遍稳健性。 |
-| *Energy Conversion and Management*、*Reliability Engineering and System Safety*（各 1 篇） | 系统耦合、实时性和可靠性问题。 | 合成或实验室配置不等于现场部署。 |
+| *Energy Conversion and Management*、*Reliability Engineering and System Safety*（各 1 篇，单篇示例） | 所选论文涉及系统耦合、实时性和可靠性问题。 | 合成或实验室配置不等于现场部署。 |
 
 ## 10. 可复用的信息槽
 
@@ -269,7 +269,7 @@
 
 - [Nature Portfolio：How to write your paper](https://www.nature.com/nature-portfolio/for-authors/write)：强调清晰直接的句子、必要时定义术语与缩写，并以目标期刊作者指南为准。
 - [Nature Communications：How to submit](https://www.nature.com/ncomms/submit/how-to-submit)：强调跨领域读者可理解的标题、摘要和正文，以及足以解释和复现结果的方法。
-- [Nature Communications：格式要求](https://www.nature.com/documents/ncomms-formatting-instructions.pdf)：列出公式可编辑性、编号、符号排印和避免夸张自评等要求；具体格式以投稿时可用的最新版为准。
+- [Nature Communications：格式要求](https://www.nature.com/documents/ncomms-formatting-instructions.pdf)：所引 PDF 标注修订于 2021 年；其中对摘要缩写、结尾句及图注缩写有具体要求，也列出公式与符号格式。投稿前核对该刊当时生效的最新版，不能把此文件当作其他期刊的通用规则。
 - [Nature Communications：计算工具研究的可复现性指南](https://www.nature.com/documents/Computational_tools_reporting_guidelines.pdf)：对数据预处理、数据划分、独立验证和基线比较提出报告建议。
 - [Nature Portfolio：Machine Learning Checklist](https://www.nature.com/documents/ML-reporting-summary.pdf)：提供数据来源、信息泄漏、模型训练、评估和计算资源的核对项；表中问题不等于所有研究都必须完成每一种实验。
 - [Nature Communications：Policy Guide](https://www.nature.com/ncomms/submit/policy)及 [Nature Energy：Content Types](https://www.nature.com/nenergy/content)：展示数据/代码声明与不同文章类型的具体要求，不能直接泛化为所有期刊的统一格式。

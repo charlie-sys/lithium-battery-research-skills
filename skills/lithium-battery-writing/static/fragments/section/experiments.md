@@ -16,7 +16,7 @@ archetypes and the same-level-repetition test.
 - Load `../../../../lithium-battery-shared/core/main-text-discipline.md` before deciding
   which analyses enter the main text. Classify results by their function in the
   paper and build the shortest sufficient evidence chain.
-- Stay mainly in past tense.
+- Use past tense as the usual default for completed experiments and observations. Present tense can identify what a figure shows or state an evidence-bounded interpretation; keep each shift purposeful.
 - Report what was observed, under what conditions, with what quantitative support.
 - Use statistics correctly and sparingly. Every test needs a stated hypothesis.
 - Keep core discovery and necessary support in the main text. Route robustness,

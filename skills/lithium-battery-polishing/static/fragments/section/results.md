@@ -12,7 +12,7 @@ Results writing should:
 
 - load `../../../../lithium-battery-shared/core/main-text-discipline.md` and classify
   every result before deciding its location
-- stay mainly in past tense
+- use past tense as the usual default for completed observations; present tense can describe what a figure shows or a current, evidence-bounded interpretation. Choose by sentence function and avoid needless shifts.
 - report what was observed, under what conditions, and with what quantitative support
 - use statistics correctly and sparingly
 - keep core discovery and necessary support in the main text

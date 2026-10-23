@@ -56,7 +56,7 @@ concession: *"**Despite the smaller scale** of our pre-training data …, the
 
 ## 6. Sentence-skeleton phrases (calibrated to 2025 corpus)
 
-- Abstract hinge: `Here we show/present X (FULL NAME, abbr.), a … that …`
+- Abstract hinge: `Here, we show/present [main finding] …`; omit abbreviations when the target journal prohibits them in the abstract.
 - Gap: `However, … remains a challenge` / `the scarcity of … hinders …` /
   `Without X, Y cannot be quantified`.
 - Result close: `These findings collectively affirm/confirm that …`

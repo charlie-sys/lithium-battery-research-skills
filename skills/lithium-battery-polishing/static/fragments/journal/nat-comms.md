@@ -16,7 +16,7 @@ Open-access, broader than a subfield journal but more specialist-tolerant than N
 - Word count is more forgiving than Nature, but **the ~5,000-word cap includes Methods**. If polishing brings the manuscript near the limit, surface a word-budget check rather than just compressing prose.
 - Methods can stay more detailed in-line; do not strip reproducibility content just to hit length.
 - Same em-dash and hedging defaults as Nature.
-- Abstract is unstructured, 150 words, no citations. If the user's abstract has citations or is structured (Background/Methods/Results), restructure before sentence polishing.
+- Abstract is unstructured, 150 words, no citations or acronyms under the linked formatting instructions. It begins with background and rationale and closes with a present-tense main result and conclusion. Verify the current journal instructions before submission; if the draft conflicts, restructure before sentence polishing.
 
 ## Length-aware polishing checks
 

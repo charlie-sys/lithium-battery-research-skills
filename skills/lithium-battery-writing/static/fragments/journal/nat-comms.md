@@ -53,8 +53,8 @@ Nature Communications enforces these at production. Mention them at the **planni
 ## Abstract drafting
 
 - 150 words, unstructured single paragraph, no citations
-- Spell out abbreviations at first use
-- Lead with the finding, not the background — editors triage on the abstract
+- Avoid acronyms and abbreviations in the abstract under the linked formatting instructions; define necessary ones in the main text and each figure legend.
+- Begin with background and rationale, then close with a concise present-tense statement of the main result and conclusion; verify the current journal instructions before submission.
 - Include quantitative results where possible
 
 ## Cross-skill notes

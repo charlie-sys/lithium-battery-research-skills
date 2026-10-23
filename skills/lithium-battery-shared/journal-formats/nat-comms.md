@@ -2,7 +2,7 @@
 
 Authoritative facts about Nature Communications formatting requirements. Used by both `lithium-battery-polishing` and `lithium-battery-writing` when `journal=nat-comms`. This file holds the **facts**; each skill's `static/fragments/journal/nat-comms.md` adds the **action layer**.
 
-> Always verify against the journal's current guidelines before final submission. Limits change. The numbers below are accurate as of early 2026.
+> Always verify against the journal's current guidelines before final submission. Limits change. The [formatting PDF](https://www.nature.com/documents/ncomms-formatting-instructions.pdf) was revised in May 2021, so do not treat this summary as a substitute for the current author instructions.
 
 ## Article types and limits
 
@@ -29,10 +29,10 @@ A paper with 4,800 words of Intro/Results/Discussion plus 1,500 words of Methods
 - 150 words maximum
 - Unstructured single paragraph
 - No citations
-- Spell out abbreviations at first use
+- Avoid acronyms and abbreviations in the abstract, as specified by the linked formatting instructions; define necessary ones at first use in the main text and in each figure legend.
 - Keywords are assigned by editorial staff, not submitted
 - Include quantitative results where possible (`94% conversion with 99% selectivity`, not `significant improvement`)
-- Lead with the finding, not the background — editors triage on the abstract
+- Begin with the background and rationale; close with a concise present-tense summary of the main result and conclusion, following the linked formatting instructions.
 
 ## Figures and display items
 
