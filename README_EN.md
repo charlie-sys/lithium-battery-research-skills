@@ -78,6 +78,8 @@ Subsequent contributions are attributed through PRs and commit history. Add sour
 
 ## 3. Project Philosophy and Community
 
+> **Source attribution:** This section is retained from the [original Nature Skills project](https://github.com/Yuan1z0825/nature-skills). Its philosophy, first-person statements, and community information belong to the original team; “I” and “we” refer to the original author or team. It presents the original project's design background and does not represent the personal views of this lithium-battery edition's maintainer. Consult the original project for supporting evidence and current community information.
+
 ### 3.1 Some Personal Views
 
 - Recently, I noticed that the Nature Skills design has drawn attention from
