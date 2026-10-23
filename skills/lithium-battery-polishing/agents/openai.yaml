@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lithium Battery · Polishing"
+  short_description: "Polish academic prose while preserving factual meaning"
+  default_prompt: "Use $lithium-battery-polishing to revise this passage into concise Nature-leaning English without changing its factual meaning."

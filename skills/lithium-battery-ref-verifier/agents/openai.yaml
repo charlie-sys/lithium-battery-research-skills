@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lithium Battery · Reference Verifier"
+  short_description: "Verify scholarly references across independent sources"
+  default_prompt: "Use $lithium-battery-ref-verifier to verify every field of these references across independent scholarly sources."

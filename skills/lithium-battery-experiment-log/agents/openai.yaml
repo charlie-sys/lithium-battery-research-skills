@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lithium Battery · Experiment Log"
+  short_description: "Turn experiment notes and media into structured logs"
+  default_prompt: "Use $lithium-battery-experiment-log to turn these notes and media into a structured experiment log."

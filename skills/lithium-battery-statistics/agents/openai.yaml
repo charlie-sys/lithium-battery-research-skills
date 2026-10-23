@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lithium Battery · Statistics"
+  short_description: "Audit statistical design, analysis, and reporting"
+  default_prompt: "Use $lithium-battery-statistics to audit the study design, analysis choices, and statistical reporting in this manuscript."

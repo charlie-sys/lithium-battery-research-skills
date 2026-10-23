@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lithium Battery · Response"
+  short_description: "Draft isolated reviewer responses and revision packages"
+  default_prompt: "Use $lithium-battery-response to prepare mutually isolated reviewer responses and a consistent revision package."

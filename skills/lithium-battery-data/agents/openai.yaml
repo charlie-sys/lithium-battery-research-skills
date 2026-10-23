@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lithium Battery · Data"
+  short_description: "Draft bilingual-aware Nature data statements"
+  default_prompt: "Use $lithium-battery-data to draft a Nature-ready Data Availability statement, repository plan, and FAIR checklist."

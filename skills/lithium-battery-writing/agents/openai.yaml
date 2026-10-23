@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lithium Battery · Writing"
+  short_description: "Draft manuscripts and initial-submission materials"
+  default_prompt: "Use $lithium-battery-writing to draft a Nature-style manuscript section or initial-submission package from these materials."

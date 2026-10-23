@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lithium Battery · Paper to PPT"
+  short_description: "Turn scientific papers into polished presentation decks"
+  default_prompt: "Use $lithium-battery-paper2ppt to turn this scientific paper into a polished, evidence-grounded presentation deck."
