@@ -110,6 +110,8 @@ Subsequent contributions are attributed through PRs and commit history. Add sour
 
 ### 3.2 Tutorials and Community
 
+The tutorials, community links, and contact details below come from the original team and refer to its community resources. Use this repository's Issues or Pull Requests to collaborate on the current edition. Consult the original project for the latest availability of these resources.
+
 <table>
   <tr>
     <td align="center">
@@ -841,5 +843,7 @@ bash scripts/update-codex-skills.sh --dest "$HOME/.codex/skills" --check
 On Windows without Bash, copy the complete `lithium-battery-*` directories from the repository's `skills/` into `%USERPROFILE%\.codex\skills\`, including the updated `lithium-battery-shared` directory and all subdirectories. Invoke the relevant skill in a new session and confirm that it reads the updated version.
 
 ## 8. Star History
+
+The chart below shows the Star history of the original [Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills) project and is retained as original-project material. It does not report the Star count or growth of `charlie-sys/lithium-battery-research-skills`. The image is a historical snapshot stored in this repository; consult the original project for live data.
 
 [![Star History Chart](assets/star-history-20261022T024032Z.svg)](https://star-history.com/#Yuan1z0825/nature-skills&Date)

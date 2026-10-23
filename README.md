@@ -97,6 +97,8 @@
 
 ### 3.2 视频教程与社区
 
+以下教程、社群入口和联系方式来自原项目团队，指向原项目的社区资源；当前版本的维护协作请通过本仓库的 Issues 或 Pull Request 进行。入口是否仍有效，请以原项目最新说明为准。
+
 <table>
   <tr>
     <td align="center">
@@ -756,5 +758,7 @@ bash scripts/update-codex-skills.sh --dest "$HOME/.codex/skills" --check
 Windows 未配置 Bash 时，可将仓库 `skills/` 下的完整 `lithium-battery-*` 目录复制到 `%USERPROFILE%\.codex\skills\`；必须同时更新 `lithium-battery-shared` 并保留子目录结构。随后在新会话中调用相应技能，确认读取的是更新版本。
 
 ## 8. Star 历史
+
+下图展示的是原项目 [Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills) 的 Star 历史，作为原项目资料保留；不代表当前 `charlie-sys/lithium-battery-research-skills` 仓库的 Star 数量或增长情况。该图为仓库内保留的历史快照，实时数据请查看原项目。
 
 [![Star History Chart](assets/star-history-20261022T024032Z.svg)](https://star-history.com/#Yuan1z0825/nature-skills&Date)
