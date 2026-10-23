@@ -4,6 +4,8 @@
 
 在 Codex 中直接指定所需技能，例如：`$lithium-battery-polishing`（已有稿件中译英或润色）、`$lithium-battery-writing`（起草章节）、`$lithium-battery-reviewer`（模拟审稿）、`$lithium-battery-citation`（文献支撑核查）、`$lithium-battery-figure`（论文绘图）。`$lithium-battery-paper-trans` 的原有工作流是英文 PDF 翻译为中文 PDF；中文论文译为英文应选 `$lithium-battery-polishing`。`lithium-battery-shared` 为内部支持包，不单独调用。
 
+新增论文或语料、更新领域写作规则及多人协作，请先阅读 [7.4 锂电池语料与技能的协作维护](#74-锂电池语料与技能的协作维护)。该流程使用本仓库地址。
+
 <div align="center">
   <p>
     <img src="assets/readme-banner-cn.png" alt="Nature Skills：面向全球学者的科研 Skill 库" width="100%">
@@ -57,6 +59,7 @@
   - [5.5 其他 Agent 场景](#55-其他-agent-场景)
 - [6. 技能索引](#6-技能索引)
 - [7. 贡献与开发](#7-贡献与开发)
+  - [7.4 锂电池语料与技能的协作维护](#74-锂电池语料与技能的协作维护)
 - [8. Star 历史](#8-star-历史)
 
 ## 1. 项目发起人与运营信息
@@ -672,6 +675,106 @@ description: >-
 | `Stable` | 已在真实学术内容上验证，规则相对稳定 |
 
 ---
+
+### 7.4 锂电池语料与技能的协作维护
+
+本节适用于更新已有 `lithium-battery-*` 技能。仓库目前为私有，协作人先由仓库所有者邀请并取得访问权限；每人使用自己的 GitHub 账号和本地克隆，通过分支和 Pull Request（PR）提交修改。上节针对**新增技能**的教程要求不作为普通语料更新的必需步骤。
+
+**1. 从当前仓库建立工作分支**
+
+首次协作：
+
+```bash
+git clone https://github.com/charlie-sys/lithium-battery-research-skills.git
+cd lithium-battery-research-skills
+git switch -c corpus/add-soh-papers-20261023
+```
+
+已有克隆时，先提交或妥善保存本地修改，再执行：
+
+```bash
+git switch main
+git pull --ff-only origin main
+git switch -c corpus/add-soh-papers-20261023
+```
+
+分支名按主题和日期调整。`origin` 应指向 `charlie-sys/lithium-battery-research-skills`；`upstream` 若存在，用于参考原项目。用 `git remote -v` 核对地址。
+
+**2. 提供语料并记录来源**
+
+将合法取得的 PDF 或文本放在本地仓库之外，例如相邻的 `battery-corpus/incoming/`。仓库维护提炼规则和来源记录；仅在确认许可及团队分享权限后提交原文。检查待提交文件，避免混入未公开稿件、个人信息或凭据。
+
+每批更新建议新增 `skills/lithium-battery-shared/references/corpus-updates/YYYY-MM-DD-topic.md`，记录：
+
+- 论文标题、作者、年份、期刊、DOI/出版商链接、读取版本和日期；已存在的 DOI 不重复计入篇数。
+- 任务范围：SOC、SOH、容量、衰退或 RUL，以及电芯/电池包、实验室/现场等条件。
+- 提炼的表达功能、所在章节及 PDF 页码或小节位置；以自己的话归纳，例句重新撰写。
+- 与原指南一致、补充或冲突的内容，适用范围，以及拟修改的技能文件。
+
+保留“原有 48 篇核心语料”与新增补充语料的区别。只有完成去重和实际阅读后才更新总数，并同步检查相关的篇数说明。单篇用法标记为示例；“常用”“更偏好”等判断应有跨论文证据。语料习惯与官方要求冲突时，核对目标期刊当前作者指南，记录来源与核对日期。
+
+**3. 更新共享指南和实际执行规则**
+
+| 文件或位置 | 何时修改 |
+|---|---|
+| [领域写作指南](skills/lithium-battery-shared/core/battery-state-estimation-writing-style.md) | 新增或修正术语、时态、语态、句式、结果、机制及验证边界；在语料锚点中关联新来源记录。 |
+| [领域路由文件](skills/lithium-battery-shared/core/battery-domain-overlay.md) | 指南新增部分或适用任务改变，需要调整其他技能读取哪些内容时。 |
+| `skills/lithium-battery-writing/`、`skills/lithium-battery-polishing/` 等受影响技能 | `static/`、`references/` 中有与新指南冲突的直接指令，或确实需要新增任务规则时。 |
+| `skills/lithium-battery-shared/journal-formats/` | 官方期刊要求有已核实变化时，注明依据及核对日期。 |
+
+仓库内的领域写作指南是本版本的维护入口。项目工作目录中另存的 `battery_state_estimation_writing_style.md` 不会自动同步到仓库；如需保留该副本，应同步正文规则，并保留两者各自可用的本地文件链接或 DOI 链接。安装到用户目录的副本也不会因仓库编辑而自动更新。
+
+共享指南由各技能通过领域路由读取，普通语料更新通常无需重复修改全部 `SKILL.md`。新增引用文件应从指南或对应技能链接，并说明何时读取；避免堆放不会被读取的材料。保留科学含义与证据边界，不把某篇论文的表达变成所有任务必须遵守的规则。
+
+可在 Codex 中提供以下请求，并替换方括号内容：
+
+```text
+使用 skill-creator 更新当前 lithium-battery 技能仓库。
+新增语料：[PDF/文本的绝对路径，或论文 DOI/链接]。
+提炼范围：[术语、动词、主语、语态、句式、章节时态、结果或机制表达]。
+请阅读原共享指南和新语料，记录来源及页码，区分原有核心语料与新增语料，
+仅把有依据的归纳写入共享指南，并修正受影响技能中的冲突指令。
+不照抄原句，不添加未经证实的科学内容；有冲突时说明依据和适用范围。
+完成相应验证，列出修改文件、验证结果与待人工判断的问题。
+推送和合并按 README 的分支与 PR 流程进行。
+```
+
+**4. 验证并提交 PR**
+
+在仓库根目录运行以下检查（Python 3.11+，并安装 `PyYAML`）：
+
+```bash
+python scripts/validate-repository.py
+python scripts/validate-skill-metadata.py
+python scripts/validate-readmes.py
+python scripts/validate-skill-index.py
+git diff --check
+git diff
+git status --short
+```
+
+若修改脚本或测试，还需运行对应工具测试。用一段获准使用的稿件验证实际改写：检查科学含义、数字、单位和证据强度是否保留，以及新规则是否只在适用语境生效。PR 描述写明来源记录、规则变更、适用范围、验证结果及尚未解决的冲突。
+
+明确选择本次要提交的文件，再提交并推送工作分支：
+
+```bash
+git add <本次修改的文件路径>
+git commit -m "Update battery writing guidance from additional corpus"
+git push -u origin corpus/add-soh-papers-20261023
+```
+
+在本仓库创建目标为 `main` 的 PR，请另一位协作人复核。等待本次触发的 GitHub Actions 检查完成；出现红叉时查看 Details 并修复失败原因，再合并。后续提交应保持技能名称、调用名称和测试预期一致；修改 `.sh` 文件时保留 Git 可执行权限。
+
+**5. 合并后更新每位使用者的安装副本**
+
+各协作人先在自己的克隆中执行 `git switch main` 和 `git pull --ff-only origin main`。如安装目录存在独立修改，先备份或将其整理回仓库。macOS/Linux 或已配置 Bash 的环境可运行：
+
+```bash
+bash scripts/update-codex-skills.sh --dest "$HOME/.codex/skills"
+bash scripts/update-codex-skills.sh --dest "$HOME/.codex/skills" --check
+```
+
+Windows 未配置 Bash 时，可将仓库 `skills/` 下的完整 `lithium-battery-*` 目录复制到 `%USERPROFILE%\.codex\skills\`；必须同时更新 `lithium-battery-shared` 并保留子目录结构。随后在新会话中调用相应技能，确认读取的是更新版本。
 
 ## 8. Star 历史
 

@@ -4,6 +4,8 @@ Current repository: [charlie-sys/lithium-battery-research-skills](https://github
 
 Invoke a specific skill with `$lithium-battery-polishing` (translate or polish existing prose), `$lithium-battery-writing` (draft sections), `$lithium-battery-reviewer` (mock peer review), `$lithium-battery-citation` (citation support), or `$lithium-battery-figure` (scientific figures). `$lithium-battery-paper-trans` retains its English-PDF-to-Chinese-PDF workflow; use `$lithium-battery-polishing` for Chinese-to-English manuscript translation. `lithium-battery-shared` is an internal support package, not a standalone workflow.
 
+For new papers, corpus updates, and team maintenance, start with [7.4 Collaborative Corpus and Skill Maintenance](#74-collaborative-corpus-and-skill-maintenance). That workflow uses this repository's URL.
+
 <div align="center">
   <p>
     <img src="assets/readme-banner-en.png" alt="Nature Skills: Reusable Research Skills for AI Scholars" width="100%">
@@ -49,6 +51,7 @@ Invoke a specific skill with `$lithium-battery-polishing` (translate or polish e
   - [5.5 Other Agent Scenarios](#55-other-agent-scenarios)
 - [6. Skill Index](#6-skill-index)
 - [7. Contribution and Development](#7-contribution-and-development)
+  - [7.4 Collaborative Corpus and Skill Maintenance](#74-collaborative-corpus-and-skill-maintenance)
 - [8. Star History](#8-star-history)
 
 ## 1. Project Founder and Operations
@@ -760,6 +763,108 @@ After adding a skill, update the [Skill Index](#6-skill-index) table:
 | `Stable` | Validated on real academic content and relatively stable |
 
 ---
+
+### 7.4 Collaborative Corpus and Skill Maintenance
+
+This section covers updates to existing `lithium-battery-*` skills. The repository is private: collaborators need an invitation from its owner and use their own GitHub accounts and local clones. Submit changes through a branch and Pull Request (PR). The preceding tutorial requirement for **new skills** does not apply to ordinary corpus updates.
+
+**1. Create a working branch in this repository**
+
+For a first contribution:
+
+```bash
+git clone https://github.com/charlie-sys/lithium-battery-research-skills.git
+cd lithium-battery-research-skills
+git switch -c corpus/add-soh-papers-20261023
+```
+
+For an existing clone, commit or otherwise preserve local edits first:
+
+```bash
+git switch main
+git pull --ff-only origin main
+git switch -c corpus/add-soh-papers-20261023
+```
+
+Adapt the branch name to the topic and date. `origin` should point to `charlie-sys/lithium-battery-research-skills`; an optional `upstream` remote is for consulting the original project. Check with `git remote -v`.
+
+**2. Supply the corpus and record its sources**
+
+Keep lawfully obtained PDFs or text outside the repository, for example in an adjacent `battery-corpus/incoming/` folder. Maintain distilled guidance and source records in Git; commit original documents only after confirming licensing and team sharing rights. Review staged files for unpublished manuscripts, personal information, and credentials.
+
+For each batch, create a record such as `skills/lithium-battery-shared/references/corpus-updates/YYYY-MM-DD-topic.md` containing:
+
+- Title, authors, year, journal, DOI/publisher link, version read, and reading date; do not count an existing DOI twice.
+- Task and conditions: SOC, SOH, capacity, degradation, or RUL; cell/pack and laboratory/field settings where relevant.
+- The expression's function, manuscript section, and PDF page or subsection; paraphrase the finding and write fresh examples.
+- Agreement, additions, or conflicts with existing guidance, the applicable scope, and affected skill files.
+
+Distinguish the original 48-paper core corpus from additions. Update totals only after deduplication and actual reading, and check related count statements. Label a single-paper usage as an example; claims such as “common” or “preferred” need evidence across papers. If corpus habits conflict with official requirements, consult the target journal's current author instructions and record the source and verification date.
+
+**3. Update the shared guide and instructions that execute it**
+
+| File or location | When to update |
+|---|---|
+| [Domain writing guide](skills/lithium-battery-shared/core/battery-state-estimation-writing-style.md) | Add or correct terminology, tense, voice, syntax, results, mechanisms, and validation boundaries; link new source records from its corpus anchors. |
+| [Domain overlay](skills/lithium-battery-shared/core/battery-domain-overlay.md) | New guide sections or task scopes change which material other skills should read. |
+| Affected skills such as `skills/lithium-battery-writing/` and `skills/lithium-battery-polishing/` | Direct instructions in `static/` or `references/` conflict with the guide, or a task genuinely needs new guidance. |
+| `skills/lithium-battery-shared/journal-formats/` | Verified changes to official journal requirements; record the evidence and verification date. |
+
+The repository's domain guide is the maintenance entry point for this edition. A separate workspace file named `battery_state_estimation_writing_style.md` does not synchronize automatically; maintain equivalent rules if retaining it, while preserving usable local PDF links or DOI links in each copy. Installed user-directory copies also do not update when the repository is edited.
+
+Skills read the shared guide through the domain overlay, so ordinary corpus additions usually do not require editing every `SKILL.md`. Link each new reference from the guide or relevant skill and explain when to read it. Preserve scientific meaning and evidence boundaries; do not turn a usage observed in one paper into a universal requirement.
+
+Example Codex request; replace the bracketed inputs:
+
+```text
+Use skill-creator to update the current lithium-battery skill repository.
+New corpus: [absolute PDF/text paths, or paper DOIs/links].
+Focus: [terminology, verbs, subjects, voice, syntax, section tenses, results, or mechanisms].
+Read the existing shared guide and new material, record sources and page locations,
+distinguish the original core corpus from additions, and incorporate supported
+findings into the shared guide. Resolve conflicting instructions in affected skills.
+Write fresh examples, preserve scientific meaning and evidence limits, and explain
+conflicting evidence and its scope. Run the relevant validation and report changed
+files, results, and issues requiring human judgment.
+Follow the README branch and PR workflow for pushing and merging.
+```
+
+**4. Validate and submit a PR**
+
+Run from the repository root with Python 3.11+ and `PyYAML` installed:
+
+```bash
+python scripts/validate-repository.py
+python scripts/validate-skill-metadata.py
+python scripts/validate-readmes.py
+python scripts/validate-skill-index.py
+git diff --check
+git diff
+git status --short
+```
+
+Run the relevant tooling tests if scripts or tests changed. Verify behavior using an authorized manuscript excerpt: preserve meaning, numbers, units, and evidence strength, and check that new rules apply only in the intended context. In the PR description, include source records, rule changes, scope, validation results, and unresolved conflicts.
+
+Select the intended files, then commit and push the working branch:
+
+```bash
+git add <paths-of-files-changed-for-this-update>
+git commit -m "Update battery writing guidance from additional corpus"
+git push -u origin corpus/add-soh-papers-20261023
+```
+
+Create a PR targeting this repository's `main` branch and ask another collaborator to review it. Wait for the triggered GitHub Actions checks; inspect Details and fix any failed checks before merging. Keep skill names, invocation names, and test expectations aligned, and preserve Git executable permissions when editing `.sh` files.
+
+**5. Refresh each user's installed copy after merging**
+
+Each collaborator runs `git switch main` and `git pull --ff-only origin main` in their clone. Back up independent installation edits or bring them into the repository first. On macOS/Linux or an environment with Bash configured:
+
+```bash
+bash scripts/update-codex-skills.sh --dest "$HOME/.codex/skills"
+bash scripts/update-codex-skills.sh --dest "$HOME/.codex/skills" --check
+```
+
+On Windows without Bash, copy the complete `lithium-battery-*` directories from the repository's `skills/` into `%USERPROFILE%\.codex\skills\`, including the updated `lithium-battery-shared` directory and all subdirectories. Invoke the relevant skill in a new session and confirm that it reads the updated version.
 
 ## 8. Star History
 
