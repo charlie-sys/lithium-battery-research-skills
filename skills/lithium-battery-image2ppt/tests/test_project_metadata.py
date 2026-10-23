@@ -66,7 +66,7 @@ class ProjectMetadataTests(unittest.TestCase):
 
     def test_openai_metadata_has_required_user_facing_fields(self) -> None:
         metadata = (SKILL_ROOT / "agents" / "openai.yaml").read_text(encoding="utf-8")
-        self.assertIn('display_name: "Nature Image2PPT"', metadata)
+        self.assertIn('display_name: "Lithium Battery · Image2PPT"', metadata)
         self.assertIn("$lithium-battery-image2ppt", metadata)
         match = re.search(r'^\s*short_description:\s*"([^"]+)"', metadata, flags=re.MULTILINE)
         self.assertIsNotNone(match)
