@@ -1,4 +1,4 @@
-> **本地锂电池版本：** 本目录的技能使用 `lithium-battery-*` 名称。请从本目录安装；下方保留的上游 GitHub 克隆、更新示例会获取原版 Nature Skills。
+> **锂电池领域版本：** 本公开仓库提供 `lithium-battery-*` 技能。安装和更新请使用 `charlie-sys/lithium-battery-research-skills`；原项目链接用于来源署名和历史资料。
 
 当前版本仓库：[charlie-sys/lithium-battery-research-skills](https://github.com/charlie-sys/lithium-battery-research-skills)。本项目改编自 [Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills)，保留原项目许可与署名。
 
@@ -70,7 +70,7 @@
 
 当前锂电池版本由 [charlie-sys](https://github.com/charlie-sys) 负责后续维护，维护仓库为 [lithium-battery-research-skills](https://github.com/charlie-sys/lithium-battery-research-skills)。维护工作包括锂离子电池状态估计语料提炼、领域写作指南更新、技能适配、版本发布与协作审核。
 
-本版本的问题反馈和更新建议通过本仓库的 Issues 或 Pull Request 提交。协作人获得私有仓库访问权限后，可按 [7.4 节](#74-锂电池语料与技能的协作维护)参与维护。
+本版本的问题反馈和更新建议通过本仓库的 Issues 或 Pull Request 提交。仓库已公开，任何使用者均可按 [7.4 节](#74-锂电池语料与技能的协作维护)参与维护。
 
 ## 2. Skills 主要开发者
 
@@ -118,359 +118,155 @@
 
 ## 4. 快速开始
 
-安装完成后，可以直接把论文、段落、审稿意见或任务描述交给 Agent。下面这些提示词可以直接复制使用：
+本仓库是公开的锂离子电池科研技能库，包含 **22 个可调用技能和 1 个共享支持包**。从本仓库安装后，在 Codex 中使用 `$lithium-battery-技能名` 指定任务；在 Claude Code 中使用相应的 `/lithium-battery-技能名`。
 
-| 想做什么 | 直接这样说 |
+| 任务 | Codex 请求示例 |
 |---|---|
-| 读论文 / 中英文对照 | `把这篇 PDF 做成图文对应的中英文对照 Markdown reader。` |
-| 生成文献汇报 PPT | `把这篇论文做成中文组会汇报 PPT，保留关键图件和来源标注。` |
-| 润色或翻译论文段落 | `把这段中文改写成 Nature 风格英文，保持学术含义不变。` |
-| 写摘要、引言或讨论 | `根据这些结果和图件，帮我起草 Nature 风格的摘要和引言。` |
-| 预投稿审稿模拟 | `从 Nature 审稿人视角评估这篇稿件，给出三份互盲 reviewer reports；全部定稿后再综合。` |
-| 回复审稿意见 | `根据这封返修邮件，为每位互盲审稿人分别写逐点回复和 cover letter，并标出修改稿需要标红的位置。` |
-| 查文献、他引和引用者画像 | `整理这篇文章的引用数、严格他引数、DOI，并看引用者里有没有院士、Fellow 或领域大牛。` |
-| 做科研图或论文示意图 | `根据这段方法和结果，帮我生成投稿级科研图或论文示意图草稿。` |
+| 中文论文译为英文 / 英文润色 | `使用 $lithium-battery-polishing，将这段 SOH 论文初稿改写为学术英文。遵循本仓库的电池领域写作指南，保留科学含义、数值及证据边界。` |
+| 起草摘要、引言或讨论 | `使用 $lithium-battery-writing，根据已有结果起草摘要。目标期刊为 [期刊名]；缺失信息请标记待补充。` |
+| 论文精读与中英文对照 | `使用 $lithium-battery-reader，读取 [论文绝对路径]，生成保留图表、公式和来源位置的中英文对照 Markdown。` |
+| 生成文献汇报 PPT | `使用 $lithium-battery-paper2ppt，将这篇论文制作成中文组会汇报 PPT，注明来源并保留关键图件。` |
+| 投稿前审查 | `使用 $lithium-battery-reviewer，检查这篇 SOH 估计论文的方法、验证范围和结论依据。` |
+| 回复审稿意见 | `使用 $lithium-battery-response，根据审稿意见和已有修订逐点起草回复；不添加未完成的实验。` |
+| 广泛检索领域文献 | `使用 $lithium-battery-academic-search，检索 [主题] 的文献，核对 DOI 和来源。` |
+| Nature/CNS 范围内补充引用 | `使用 $lithium-battery-citation，为这些论断寻找 Nature/CNS 系列支撑文献，并说明匹配关系。` |
+| 论文绘图 | `使用 $lithium-battery-figure，根据这些数据绘制 SOC/SOH 估计结果图，保留单位、基线与测试条件。` |
 
-如果你不确定该用哪个技能，直接描述任务即可；如果已经知道技能名，可以在提示词中明确写“使用 `lithium-battery-reader`”或“使用 `lithium-battery-response`”。
+提供稿件或数据的可访问路径、任务范围、输出目录，以及目标期刊（如已确定）。未指定期刊时，以清晰、准确的领域学术表达为默认风格；指定期刊后再核对其当前作者指南。`lithium-battery-paper-trans` 用于英文 PDF 翻译为中文 PDF；中文论文译为英文请选择 `lithium-battery-polishing`。`lithium-battery-shared` 供其他技能读取，不单独调用。
+
+首次使用先处理一段文字，检查技能是否加载、是否遵循领域指南、数字和术语是否保留，再处理整篇论文。新增论文语料的维护方式见 [7.4 节](#74-锂电池语料与技能的协作维护)。
 
 ## 5. 安装
 
-`nature-skills` 是一组围绕 `SKILL.md` 组织的可复用技能包。`skills/` 下的每个顶层技能目录都是一个可安装单元，例如 `nature-*`；`lithium-battery-shared` 是供其他技能读取的共享支持包，默认不作为独立触发技能计入技能索引。
+**安装来源：** [charlie-sys/lithium-battery-research-skills](https://github.com/charlie-sys/lithium-battery-research-skills)。公开克隆和下载无需协作邀请；提交修改按 PR 流程进行。本节命令均获取本版本的 `lithium-battery-*` 技能。
+
+安装时保留完整技能目录及同级的 `lithium-battery-shared`，包括 `SKILL.md`、`agents/`、`references/`、`static/`、脚本和资产。所有领域技能均会引用共享支持包，按需安装时也应同时选中它。技能文件与 Python、R、浏览器、MCP 或外部服务配置分别安装。
 
 ### 5.1 `npx skills` 安装方式
 
-需要先安装 [Node.js 18 或更高版本](https://nodejs.org/)。无需全局安装 CLI；先查看仓库中可安装的技能名：
+本方式使用第三方 [Vercel Skills CLI](https://github.com/vercel-labs/skills)。按其当前说明，需要 **Node.js 22.20 或更高版本**；参数以 [CLI 官方文档](https://github.com/vercel-labs/skills/blob/main/docs/commands.md)和 `npx skills --help` 为准。
 
-```bash
-npx skills add Yuan1z0825/nature-skills --list
-```
+列出技能，再选择需要的技能和共享包：
 
-优先按当前任务选择需要的技能，并保留其共享依赖。只为当前项目安装时，省略 `--global`；需要跨项目使用时再加上它。例如：
+~~~bash
+npx skills add charlie-sys/lithium-battery-research-skills --list
+npx skills add charlie-sys/lithium-battery-research-skills --agent codex --skill lithium-battery-polishing lithium-battery-shared --global --copy --yes
+~~~
 
-```bash
-npx skills add Yuan1z0825/nature-skills --agent codex --skill lithium-battery-figure --yes --copy
-```
+安装全部技能：
 
-单独安装 `lithium-battery-reader`、`lithium-battery-paper2ppt`、`lithium-battery-polishing` 或 `lithium-battery-writing` 时，同时选择共享支持包：
+~~~bash
+npx skills add charlie-sys/lithium-battery-research-skills --agent codex --skill '*' --global --copy --yes
+~~~
 
-```bash
-npx skills add Yuan1z0825/nature-skills --global --agent codex \
-  --skill lithium-battery-reader --skill lithium-battery-shared --yes --copy
-```
+`--global` 表示用户级安装；省略时安装到当前项目。Claude Code 用户将 `--agent codex` 改为 `--agent claude-code`。安装后可用 `npx skills list --global` 查看结果。
 
-如果确实需要完整技能集，也可以全局安装到 Codex。全量选择包含 `lithium-battery-shared`：
-
-```bash
-npx skills add Yuan1z0825/nature-skills --global --agent codex --skill '*' --yes --copy
-```
-
-需要把全部技能安装到 CLI 支持的所有 agent 时，使用：
-
-```bash
-npx skills add Yuan1z0825/nature-skills --all
-```
-
-检查全局安装结果并更新：
-
-```bash
-npx skills list --global --agent codex --json
-npx skills update --global --yes
-```
-
-只更新一个技能，或只更新当前项目中的技能：
-
-```bash
-npx skills update lithium-battery-reader --global --yes
-npx skills update --project --yes
-```
-
-技能选择参数使用 `--list` 显示的 frontmatter 名称；例如目录 `lithium-battery-proposal-writer` 当前显示为 `lithium-battery-proposal-writer`。`npx skills` 管理的是技能文件，Python、R、浏览器或 MCP 等可选运行依赖仍需按下文说明单独配置。
+通过 CLI 从远程仓库安装的技能可用 `npx skills check` 检查更新，再运行 `npx skills update lithium-battery-polishing lithium-battery-shared --global` 更新相应条目。手动复制或仓库脚本管理的安装，按下节方法更新；同一安装目标选择一种维护方式。
 
 ### 5.2 Claude Code 安装方式
 
-Claude Code 不能直接使用 `scripts/update-codex-skills.sh`，因为这个脚本只负责同步到 Codex 的 `~/.codex/skills/`。用于 Claude Code 时，推荐保留一个稳定的本地 clone，再用 subagent 或 slash command 指向真实的 `skills/*/SKILL.md`。这样不会破坏技能目录结构，也能继续读取 `references/`、`static/`、`manifest.yaml`、脚本、资产和 `skills/lithium-battery-shared/`。
+[Claude Code 官方技能说明](https://code.claude.com/docs/en/skills)使用用户级目录 `~/.claude/skills/` 或项目级 `.claude/skills/`。可用上一节的 CLI，也可将本仓库完整技能目录同步到该位置。
 
-如果还没有安装 Claude Code：
+macOS/Linux 下先克隆本仓库，再指定目标目录运行脚本；需要 Bash、Git、`rsync` 和 `diff`：
 
-```bash
-npm install -g @anthropic-ai/claude-code
-claude
-```
+~~~bash
+git clone https://github.com/charlie-sys/lithium-battery-research-skills.git
+cd lithium-battery-research-skills
+bash scripts/update-codex-skills.sh --dest "$HOME/.claude/skills"
+bash scripts/update-codex-skills.sh --dest "$HOME/.claude/skills" --check
+~~~
 
-先把仓库 clone 到一个稳定路径：
+虽然脚本名包含 `codex`，其 `--dest` 参数支持指定其他客户端的技能目录。Windows 手动复制方法见下一节，将目标目录改为 `.claude/skills`。在 Claude Code 中使用 `/lithium-battery-polishing` 等命令，并确认对应技能可见；发现失败时按客户端文档刷新或重启。
 
-```bash
-mkdir -p ~/ai-skills
-cd ~/ai-skills
-git clone https://github.com/Yuan1z0825/nature-skills.git
-```
-
-推荐方式：为常用技能创建 Claude Code subagent wrapper。以 `lithium-battery-reader` 为例：
-
-```bash
-mkdir -p ~/.claude/agents
-cat > ~/.claude/agents/lithium-battery-reader.md <<'EOF'
----
-name: lithium-battery-reader
-description: Use for Chinese-English paper reading, figure-aware translation, and source-grounded paper notes.
----
-
-When invoked, first read `~/ai-skills/nature-skills/skills/lithium-battery-reader/SKILL.md` and follow it as the governing workflow.
-Read supporting files from `~/ai-skills/nature-skills/skills/lithium-battery-reader/` and `~/ai-skills/nature-skills/skills/lithium-battery-shared/` only when needed.
-Do not replace this skill with a generic paper-reading response.
-EOF
-```
-
-然后开启新的 Claude Code 会话，直接请求使用这个 subagent：
-
-```text
-Use the lithium-battery-reader subagent to turn this paper into a Chinese-English Markdown reader.
-```
-
-如果你更喜欢 slash command，也可以创建命令 wrapper：
-
-```bash
-mkdir -p ~/.claude/commands
-cat > ~/.claude/commands/lithium-battery-reader.md <<'EOF'
-Read `~/ai-skills/nature-skills/skills/lithium-battery-reader/SKILL.md` first and follow it strictly.
-Read directly needed supporting files from `~/ai-skills/nature-skills/skills/lithium-battery-reader/` and `~/ai-skills/nature-skills/skills/lithium-battery-shared/`.
-
-$ARGUMENTS
-EOF
-```
-
-在 Claude Code 中使用：
-
-```text
-/lithium-battery-reader 把这篇论文做成中英文对照的完整 Markdown reader。
-```
-
-安装其他技能时，把示例中的 `lithium-battery-reader` 换成对应目录名即可，例如 `lithium-battery-polishing`、`lithium-battery-writing`、`lithium-battery-reviewer`、`lithium-battery-response` 或 `lithium-battery-figure`。后续更新只需要：
-
-```bash
-cd ~/ai-skills/nature-skills
-git pull
-```
-
-只要 wrapper 仍然指向这个稳定 clone 路径，就不需要重复复制技能文件。
-
-**自动更新（可选）**
-
-如果你希望 Claude Code 每次开启会话时自动拉取上游更新，可以用 `scripts/autoupdate-skills.sh` 配合一个 `SessionStart` 钩子。
-
-这套方式把技能**直接复制**进 `~/.claude/skills/`（Claude Code 会自动发现该目录，技能以目录名直接加载），而不是使用上面的 wrapper。两种方式二选一即可。
-
-先保留一个**专用**的稳定 clone（只用于同步技能，请不要在里面做开发提交）：
-
-```bash
-mkdir -p ~/ai-skills
-git clone https://github.com/Yuan1z0825/nature-skills.git ~/ai-skills/nature-skills
-```
-
-首次安装，把技能复制进 Claude Code 的技能目录：
-
-```bash
-~/ai-skills/nature-skills/scripts/autoupdate-skills.sh --force
-```
-
-然后在 `~/.claude/settings.json` 里加一个 `SessionStart` 钩子（若已有 `hooks`，把这一项合并进去，不要整体覆盖）：
-
-```json
-{
-  "hooks": {
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "$HOME/ai-skills/nature-skills/scripts/autoupdate-skills.sh",
-            "async": true,
-            "timeout": 120
-          }
-        ]
-      }
-    ]
-  }
-}
-```
-
-`async: true` 让它在后台运行、不阻塞启动。脚本自带保护：默认 1 小时内不重复联网检查、断网或拉取失败自动跳过（`exit 0`，绝不卡住会话）、上游变化或安装目录发生漂移时重新同步、并且拒绝在有未提交改动的 clone 上强行前进。拉到的新版会在**下一次**开启会话时生效（当前会话的技能已经加载完毕）。每个安装目标使用独立日志，路径为 `~/.local/state/nature-skills/<目标目录编号>/autoupdate.log`。
-
-目标目录与检查频率都可配置：
-
-```bash
-# 默认同步到 ~/.claude/skills；用 --dest 指到别处，例如 Codex：
-~/ai-skills/nature-skills/scripts/autoupdate-skills.sh --dest ~/.codex/skills
-# 最多每小时联网检查一次；每次运行仍会校验本地安装：
-~/ai-skills/nature-skills/scripts/autoupdate-skills.sh --throttle 3600
-```
+更新时在此克隆目录执行 `git pull --ff-only origin main`，然后重新运行上述同步和检查命令。
 
 ### 5.3 Codex 安装方式
 
-需要安装或更新完整技能集时，可以使用仓库自带脚本。脚本会同步 `skills/` 下所有顶层技能目录，并在复制后做 `diff` 验证；它不会覆盖其他无关 Codex skills。只需要部分技能时，使用上面的 `npx skills` 按需安装方式。
+**选择安装目录。** 当前 [OpenAI 技能文档](https://learn.chatgpt.com/docs/build-skills)列出用户级 `~/.agents/skills/` 和项目级 `.agents/skills/`。本项目此前已在 `~/.codex/skills/` 部署并使用；仓库脚本的默认目标仍是该目录。以下新安装示例显式指定 `.agents/skills`。如果你的 Codex 已从 `.codex/skills` 加载本版本，请继续更新该实际目录，避免在两个位置安装同名技能。
 
-```bash
-git clone https://github.com/Yuan1z0825/nature-skills.git
-cd nature-skills
-scripts/update-codex-skills.sh --pull
-```
+**macOS/Linux 或具备完整依赖的 Bash 环境**
 
-如果已经 clone 过仓库：
+脚本需要 Git、Bash、`rsync` 和 `diff`；只有 Bash 而没有 `rsync` 的 Windows 环境请用后面的 PowerShell 方法。
 
-```bash
-cd nature-skills
-scripts/update-codex-skills.sh --pull
-```
+~~~bash
+git clone https://github.com/charlie-sys/lithium-battery-research-skills.git
+cd lithium-battery-research-skills
+bash scripts/update-codex-skills.sh --dest "$HOME/.agents/skills"
+bash scripts/update-codex-skills.sh --dest "$HOME/.agents/skills" --check
+~~~
 
-验证当前 Codex 安装是否和这个 checkout 一致：
+脚本复制本仓库的全部 23 个技能目录，并校验文件差异。再次执行会同步更新同名目录；如安装副本中有独立修改，先备份或整理回仓库。更新命令：
 
-```bash
-scripts/update-codex-skills.sh --check
-```
+~~~bash
+git pull --ff-only origin main
+bash scripts/update-codex-skills.sh --dest "$HOME/.agents/skills"
+bash scripts/update-codex-skills.sh --dest "$HOME/.agents/skills" --check
+~~~
 
-如果你长期用这个脚本更新，并希望清理上游已经删除的旧技能目录：
+需要清理此脚本曾管理、而仓库已删除的技能时，可在同步命令中加入 `--prune`。如指定项目级目标，使用该项目的绝对 `.agents/skills` 路径。
 
-```bash
-scripts/update-codex-skills.sh --pull --prune
-```
+**Windows PowerShell**
 
-`--prune` 只会删除以前由这个脚本记录过、但当前仓库已经不再包含的目录。第一次运行没有历史记录时，它不会猜测删除旧目录。
+先安装 Git。首次克隆并复制完整技能目录：
 
-也可以把仓库链接交给 Codex，让 Codex 执行安装脚本。推荐提示词：
-
-```text
-请从这个仓库安装 Codex skills：
-https://github.com/Yuan1z0825/nature-skills.git
-
-请 clone 仓库后运行 scripts/update-codex-skills.sh --pull。
-安装后再运行 scripts/update-codex-skills.sh --check 验证。
-请保留 skills/ 下的完整技能目录，不要只复制 SKILL.md。
-```
-
-如果只安装单个技能，请明确说明技能名：
-
-```text
-只安装这个仓库里的 lithium-battery-reader：
-https://github.com/Yuan1z0825/nature-skills.git
-
-如果该技能需要共享文件，也请一并安装 skills/lithium-battery-shared。
-```
-
-关键规则：保留完整目录结构。请复制或引用整个技能文件夹，而不是只复制 `SKILL.md`，因为许多技能依赖 `references/`、`static/`、`manifest.yaml`、脚本、资产或共享文件。
-
-安装脚本不会自动安装 Python 依赖。需要使用相关脚本或 MCP 服务时，再按需安装：
-
-```bash
-python -m pip install -r skills/lithium-battery-paper-to-patent/requirements.txt
-python -m pip install -r skills/lithium-battery-paper-to-patent/scripts/disclosure/requirements-cnipa.txt  # 可选：国知局公布公告检索
-python -m pip install -r skills/lithium-battery-academic-search/mcp-server/requirements.txt
-```
-
-如果启用 `lithium-battery-paper-to-patent` 的国知局公布公告检索，还需要执行 `python -m playwright install chromium`。
-
-`lithium-battery-academic-search` 的 MCP 服务还需要单独配置 `PUBMED_EMAIL`，Scopus / ScienceDirect 等可选 provider 需要使用本机凭据配置，不要把 API key 写入仓库文件。
-
-安装后，请开启一个新的 Codex 会话，然后自然描述任务，例如：
-
-```text
-把这篇论文做成中英文对照的完整 Markdown reader。
-```
-
-```text
-把这篇论文做成中文PPT。
-```
-
-如果你使用 OpenClaw、OpenCode、Hermes 等开源 agent / 编程框架，请看 [OpenClaw / OpenCode / Hermes 接入教程](docs/open-source-agent-frameworks.md)。
-
-**自动更新（可选）**
-
-Codex 支持全局 `SessionStart` hook。保留一个专用 clone 后，可以在每次启动或恢复 Codex 会话时检查更新，并把新版同步到 `~/.codex/skills/`。
-
-先创建专用 clone 并完成首次同步：
-
-```bash
-mkdir -p ~/.codex
-git clone https://github.com/Yuan1z0825/nature-skills.git ~/.codex/.nature-skills-src
-~/.codex/.nature-skills-src/scripts/autoupdate-skills.sh \
-  --dest ~/.codex/skills --force
-```
-
-然后创建或合并 `~/.codex/hooks.json`：
-
-```json
-{
-  "hooks": {
-    "SessionStart": [
-      {
-        "matcher": "startup|resume",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/bin/bash \"$HOME/.codex/.nature-skills-src/scripts/autoupdate-skills.sh\" --dest \"$HOME/.codex/skills\"",
-            "timeout": 120,
-            "statusMessage": "Checking Nature Skills updates"
-          }
-        ]
-      }
-    ]
-  }
+~~~powershell
+git clone https://github.com/charlie-sys/lithium-battery-research-skills.git
+Set-Location lithium-battery-research-skills
+$skillDest = Join-Path $env:USERPROFILE '.agents/skills'
+New-Item -ItemType Directory -Path $skillDest -Force | Out-Null
+Get-ChildItem -LiteralPath './skills' -Directory -Filter 'lithium-battery-*' | ForEach-Object {
+    Copy-Item -LiteralPath $_.FullName -Destination $skillDest -Recurse -Force
 }
-```
+Test-Path -LiteralPath (Join-Path $skillDest 'lithium-battery-polishing/SKILL.md')
+Test-Path -LiteralPath (Join-Path $skillDest 'lithium-battery-shared/core/battery-state-estimation-writing-style.md')
+~~~
 
-若 `hooks.json` 中已有其他 hook，请合并 `SessionStart` 项，不要整体覆盖。首次启用或修改 hook 后，在 Codex 中运行 `/hooks` 检查并信任它。Codex 当前按同步方式执行 command hook，因此这里依靠脚本自带的 1 小时节流、60 秒网络保护和断网自动跳过，避免每次会话都重复联网或因更新失败阻断启动。即使上游版本未变化，脚本也会验证安装目录并在发现漂移时重新同步。
+上述两个检查应返回 `True`。现有安装位于 `.codex/skills` 时，将 `$skillDest` 中的 `.agents/skills` 改成 `.codex/skills`。后续在克隆目录执行 `git pull --ff-only origin main`，再执行复制和检查步骤。PowerShell 复制会更新文件，但不会清理目标目录中已从仓库删除的旧文件。
 
-每个安装目标使用独立日志，路径为 `~/.local/state/nature-skills/<目标目录编号>/autoupdate.log`。拉取到的新技能通常在下一次会话中完整生效。
+也可向 Codex 提出：
+
+~~~text
+请从 https://github.com/charlie-sys/lithium-battery-research-skills.git 安装技能。
+先确认当前 Codex 实际使用的用户级技能目录，再安装完整的 lithium-battery-* 目录，
+包含 lithium-battery-shared；如已有同名安装，请检查本地修改后更新。
+完成后检查领域写作指南及技能引用文件是否可读取。
+~~~
+
+安装后在技能列表中确认 `lithium-battery-polishing` 等条目，并用第 4 节的请求验证。若新技能未出现，重启 Codex。本节不要求配置启动钩子。
+
+**运行依赖与可选更新脚本**
+
+只做文字改写时，先使用写作或润色技能；涉及绘图、PDF、PPTX、下载或检索服务时，再按对应技能的 README 配置依赖。例如：
+
+~~~bash
+python -m pip install -r skills/lithium-battery-image2ppt/requirements.txt
+python -m pip install -r skills/lithium-battery-paper-to-patent/requirements.txt
+python -m pip install -r skills/lithium-battery-academic-search/mcp-server/requirements.txt
+~~~
+
+所需 API 凭据在本机或运行环境配置。安装指令文件并不代表浏览器、外部服务或 MCP 已可用。
+
+需要自动化更新时，可在**专门用于同步的克隆**中调用：
+
+~~~bash
+bash scripts/autoupdate-skills.sh --dest "$HOME/.agents/skills" --force
+~~~
+
+首次同步可使用上述 `--force`；后续周期执行时省略它，使用默认最多每小时一次的联网检查。每次仍检查安装漂移。默认日志位于 `~/.local/state/lithium-battery-skills/<目标目录编号>/autoupdate.log`，设置 `XDG_STATE_HOME` 或 `SKILLS_STATE_DIR` 时随之变化。请按实际客户端和操作系统配置调度，并保持目标目录一致。
 
 ### 5.4 Chatbox 安装与使用
 
-[Chatbox](https://chatboxai.app/zh) 桌面版提供图形化 Skills 管理界面。请使用带有「设置 → 技能（Skills）」入口的版本；本节适用于桌面端。
+本仓库未提供专用 Chatbox 安装器。若当前客户端支持 GitHub Skills 导入，使用本仓库地址 `https://github.com/charlie-sys/lithium-battery-research-skills`，选择所需技能和 `lithium-battery-shared`。具体入口以所用 Chatbox 版本为准。
 
-**从 GitHub 安装**
+也可克隆仓库，或从 GitHub 的 Code → Download ZIP 下载后解压，再将完整技能目录导入客户端指定位置。保留共享包与各技能的同级关系；更新时同时更新共享包。
 
-1. 打开 Chatbox 的「设置 → 技能」，点击「从 GitHub 安装」。
-2. 粘贴 `https://github.com/Yuan1z0825/nature-skills`，点击「扫描」。
-3. 勾选需要的技能，点击「安装已选」。初次体验可选择 `lithium-battery-polishing` 和 `lithium-battery-shared`；需要整套技能时可以「全选」。
-4. 在「已安装技能」中确认安装结果，并确认需要使用的技能已启用。
-
-`lithium-battery-shared` 是共享支持包。使用 `lithium-battery-polishing`、`lithium-battery-writing`、`lithium-battery-response`、`lithium-battery-reader` 或 `lithium-battery-paper2ppt` 等引用它的技能时，需要一并安装；它不作为独立任务调用。安装单个技能不会自动补齐其他技能依赖。列表可能显示技能的 frontmatter 名称，例如 `lithium-battery-proposal-writer` 显示为 `lithium-battery-proposal-writer`。
-
-**开始使用**
-
-新建对话，选择支持工具调用的模型，开启「智能体模式（Agent Mode）」。把待处理文本粘贴到对话中，并明确写出技能名。例如：
-
-```text
-请使用 lithium-battery-polishing，把下面这段中文改写为 Nature 风格英文。
-保持原有学术含义、数值和结论边界，列出主要修改及理由：
-
-[在这里粘贴论文段落]
-```
-
-需要读论文时，可安装 `lithium-battery-reader` 和 `lithium-battery-shared`，提供论文文件或可访问的本地路径，再请求：
-
-```text
-请使用 lithium-battery-reader，把这篇论文做成图文对应的中英文对照 Markdown reader，
-保留公式和来源锚点，并将产物保存到我指定的输出目录。
-```
-
-检查对话中的技能加载和工具执行记录，确认实际加载了所需技能。若未触发，先检查技能开关、智能体模式以及当前模型是否支持工具调用。
-
-**运行依赖与更新**
-
-Skills 安装的是指令和配套文件。Python/R、PDF/PPTX 工具、浏览器和 MCP 服务等运行依赖仍需按具体技能说明配置；涉及本地文件或脚本时，按 Chatbox 提示授权所需目录和命令。生成图片等外部服务需要对应服务的凭据。安装成功不代表这些外部能力已配置完成。
-
-在技能的操作菜单中可「检查更新」并按提示更新；有共享依赖时也要检查 `lithium-battery-shared`。如果 GitHub 扫描或下载失败，可从本仓库的「Code → Download ZIP」下载并解压，点击 Chatbox 的「打开技能文件夹」，将所需的完整技能目录及 `lithium-battery-shared` 放到该文件夹的同一级，然后刷新技能列表并启用。保留 `references/`、`static/`、脚本和资产；不要只复制 `SKILL.md`。手动复制时，目录名应与 `SKILL.md` 中的 `name` 一致（例如将 `lithium-battery-proposal-writer` 目录命名为 `lithium-battery-proposal-writer`）。手动复制的技能需要手动更新。
+在支持技能加载、文件访问和所需工具的会话中请求“使用 `lithium-battery-polishing` 处理以下稿件”，并检查加载记录。需要 Python、浏览器或 MCP 的任务，须在该客户端配置相应能力。
 
 ### 5.5 其他 Agent 场景
 
-OpenClaw、OpenCode、Hermes 的具体接入方式见 [OpenClaw / OpenCode / Hermes 接入教程](docs/open-source-agent-frameworks.md)。
+先按目标 Agent 的官方说明确认技能目录和调用方式，再从本仓库复制或安装所需的完整 `skills/lithium-battery-*` 目录及 `lithium-battery-shared`。支持 Vercel Skills CLI 的客户端也可按第 5.1 节选择目标 Agent。
 
-用于其他 agent 时，建议保留一个稳定的仓库 clone，再创建轻量 subagent、slash command 或 custom prompt wrapper，指向真实的 `skills/*/SKILL.md`，并保留 `skills/lithium-battery-shared/`。
-
-手动或其他 agent 使用时：
-
-1. 将完整技能目录复制到你的 prompt library 或项目中。
-2. 保留 `SKILL.md`、`manifest.yaml`、`static/`、`references/`、脚本、资产和需要的 `skills/lithium-battery-shared/` 文件。
-3. 如目标 agent 有自己的格式要求，可调整 frontmatter 和正文结构。
+如通过自定义提示词引用仓库文件，应指向当前克隆中真实的 `skills/<技能名>/SKILL.md`，并允许读取所需的共享文件。更新来源统一使用本仓库；技能修改和贡献见第 7.4 节。
 
 ## 6. 技能索引
 
@@ -659,7 +455,7 @@ description: >-
 
 ### 7.4 锂电池语料与技能的协作维护
 
-本节适用于更新已有 `lithium-battery-*` 技能。仓库目前为私有，协作人先由仓库所有者邀请并取得访问权限；每人使用自己的 GitHub 账号和本地克隆，通过分支和 Pull Request（PR）提交修改。上节针对**新增技能**的教程要求不作为普通语料更新的必需步骤。
+本节适用于更新已有 `lithium-battery-*` 技能。本仓库已公开，任何人均可克隆和使用。有写入权限的协作人可直接推送工作分支；其他贡献者先在 GitHub 创建本仓库的 Fork，再将下面的克隆地址替换为自己的 Fork 地址，向本仓库提交 Pull Request（PR）。每人使用自己的 GitHub 账号。上节针对**新增技能**的教程要求不作为普通语料更新的必需步骤。
 
 **1. 从当前仓库建立工作分支**
 
@@ -679,11 +475,11 @@ git pull --ff-only origin main
 git switch -c corpus/add-soh-papers-20261023
 ```
 
-分支名按主题和日期调整。`origin` 应指向 `charlie-sys/lithium-battery-research-skills`；`upstream` 若存在，用于参考原项目。用 `git remote -v` 核对地址。
+分支名按主题和日期调整。直接协作时 `origin` 指向本仓库；使用 Fork 时 `origin` 指向自己的 Fork，另设远程地址跟踪本仓库以获取最新 `main`。参考原 Nature Skills 项目时，应另行区分其远程地址。用 `git remote -v` 核对实际拉取与推送目标。
 
 **2. 提供语料并记录来源**
 
-将合法取得的 PDF 或文本放在本地仓库之外，例如相邻的 `battery-corpus/incoming/`。仓库维护提炼规则和来源记录；仅在确认许可及团队分享权限后提交原文。检查待提交文件，避免混入未公开稿件、个人信息或凭据。
+将合法取得的 PDF 或文本放在本地仓库之外，例如相邻的 `battery-corpus/incoming/`。仓库维护提炼规则和来源记录；提交原文前须确认其许可允许公开再分发。检查待提交文件，避免混入未公开稿件、个人信息或凭据。
 
 每批更新建议新增 `skills/lithium-battery-shared/references/corpus-updates/YYYY-MM-DD-topic.md`，记录：
 
@@ -748,14 +544,7 @@ git push -u origin corpus/add-soh-papers-20261023
 
 **5. 合并后更新每位使用者的安装副本**
 
-各协作人先在自己的克隆中执行 `git switch main` 和 `git pull --ff-only origin main`。如安装目录存在独立修改，先备份或将其整理回仓库。macOS/Linux 或已配置 Bash 的环境可运行：
-
-```bash
-bash scripts/update-codex-skills.sh --dest "$HOME/.codex/skills"
-bash scripts/update-codex-skills.sh --dest "$HOME/.codex/skills" --check
-```
-
-Windows 未配置 Bash 时，可将仓库 `skills/` 下的完整 `lithium-battery-*` 目录复制到 `%USERPROFILE%\.codex\skills\`；必须同时更新 `lithium-battery-shared` 并保留子目录结构。随后在新会话中调用相应技能，确认读取的是更新版本。
+直接协作的使用者先在克隆中执行 `git switch main` 和 `git pull --ff-only origin main`；使用 Fork 时先将自己的 `main` 同步至本仓库最新版本。如安装目录存在独立修改，先备份或将其整理回仓库，再按 [5.3 节](#53-codex-安装方式)的同步和检查步骤更新实际安装目录。Claude Code 用户按第 5.2 节更新。随后调用相应技能，确认读取的是更新版本。
 
 ## 8. Star 历史
 
