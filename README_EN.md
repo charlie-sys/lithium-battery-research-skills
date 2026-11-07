@@ -575,4 +575,4 @@ Direct collaborators run `git switch main` and `git pull --ff-only origin main` 
 
 The chart below shows the Star history of the original [Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills) project and is retained as original-project material. It does not report the Star count or growth of `charlie-sys/lithium-battery-research-skills`. The image is a historical snapshot stored in this repository; consult the original project for live data.
 
-[![Star History Chart](assets/star-history-20261104T090923Z.svg)](https://star-history.com/#Yuan1z0825/nature-skills&Date)
+[![Star History Chart](assets/star-history-20261107T084533Z.svg)](https://star-history.com/#Yuan1z0825/nature-skills&Date)
