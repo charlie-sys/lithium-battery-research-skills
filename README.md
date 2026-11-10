@@ -550,4 +550,4 @@ git push -u origin corpus/add-soh-papers-20261023
 
 下图展示的是原项目 [Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills) 的 Star 历史，作为原项目资料保留；不代表当前 `charlie-sys/lithium-battery-research-skills` 仓库的 Star 数量或增长情况。该图为仓库内保留的历史快照，实时数据请查看原项目。
 
-[![Star History Chart](assets/star-history-20261107T084533Z.svg)](https://star-history.com/#Yuan1z0825/nature-skills&Date)
+[![Star History Chart](assets/star-history-20261110T094712Z.svg)](https://star-history.com/#Yuan1z0825/nature-skills&Date)
